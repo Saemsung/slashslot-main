@@ -1,71 +1,43 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
-
-const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
-  mode: isProduction ? 'production' : 'development',
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: isProduction ? '[name].[contenthash].js' : 'bundle.js',
+    filename: 'bundle.js',
     publicPath: '/',
   },
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.js$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env', '@babel/preset-react'],
-          },
         },
       },
       {
         test: /\.css$/,
-        use: [
-          isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
-          'css-loader',
-        ],
-      },
-      {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: 'asset/resource',
+        use: ['style-loader', 'css-loader'],
       },
     ],
   },
   plugins: [
-    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: './public/index.html',
       favicon: './public/favicon.ico',
     }),
     new CopyWebpackPlugin({
-      patterns: [
-        { 
-          from: 'public', 
-          to: 'public',
-          globOptions: {
-            ignore: ['**/index.html', '**/favicon.ico'],
-          },
-        }
-      ],
+      patterns: [{ from: 'public', to: 'public' }],
     }),
-    ...(isProduction ? [new MiniCssExtractPlugin({
-      filename: '[name].[contenthash].css',
-    })] : []),
   ],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src'),
+      '@': path.resolve(__dirname, 'src'), // Aggiungi questa linea per l'alias
     },
-    extensions: ['.js', '.jsx', '.json'],
+    extensions: ['.js', '.json'], // Opzionale: permette di omettere le estensioni durante l'import
   },
   devServer: {
     static: {
@@ -83,11 +55,4 @@ module.exports = {
       },
     ],
   },
-  optimization: {
-    minimizer: [new TerserPlugin()],
-    splitChunks: {
-      chunks: 'all',
-    },
-  },
-  devtool: isProduction ? 'source-map' : 'eval-source-map',
 };
