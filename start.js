@@ -109,8 +109,8 @@ const startFrontend = () => {
         if (process.argv[2] === 'pro') {
             console.log(chalk.magenta('[Frontend] ') + data.toString());
         }
-        if (data.includes('http://192.168.0.120:3000')) {
-            console.log(chalk.cyan(`🌐 Frontend: http://192.168.0.120:3000/`));
+        if (data.includes('http://slashslot:3000')) {
+            console.log(chalk.cyan(`🌐 Frontend: http://slashslot:3000/`));
         }
     });
 
