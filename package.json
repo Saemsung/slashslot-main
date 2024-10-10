@@ -24,6 +24,7 @@
         "chalk": "^5.3.0",
         "concurrently": "^8.2.0",
         "figlet": "^1.7.0",
+        "html-webpack-plugin": "^5.6.0",
         "nodemon": "^3.1.7",
         "webpack": "^5.95.0",
         "webpack-cli": "^5.1.4"
