@@ -14,7 +14,7 @@ const User = () => {
     const fetchUserData = async () => {
       try {
         const token = localStorage.getItem('token') || sessionStorage.getItem('token');
-        const response = await axios.get('http://localhost:5000/api/account/user', {
+        const response = await axios.get('http://slashslot:5000/api/account/user', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setUserData(response.data);
@@ -44,7 +44,6 @@ const User = () => {
 
   const handleAdditionalInfoSubmit = (event) => {
     event.preventDefault();
-    // Handle additional info submission
     console.log('Additional info submitted');
   };
 

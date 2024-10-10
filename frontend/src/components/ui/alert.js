@@ -1,4 +1,3 @@
-// Crea un file alert.js nel percorso corretto
 import React from 'react';
 
 export const Alert = ({ variant = 'default', children }) => {

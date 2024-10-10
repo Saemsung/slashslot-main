@@ -14,16 +14,14 @@ const Home = () => {
     
     
     useEffect(() => {
-        // Animation for title words
         const titleWordElements = document.querySelectorAll('.title-word');
         titleWordElements.forEach((word, index) => {
             setTimeout(() => {
                 word.classList.add('visible');
-            }, index * 200); // Stagger the animation for each word
+            }, index * 200); 
         });
 
-        // Ensure the description and button animation happens after title words
-        const totalAnimationDuration = titleWordElements.length * 200 + 200; // Adding extra 200ms to ensure smoothness
+        const totalAnimationDuration = titleWordElements.length * 200 + 200;
         const description = document.querySelector('.description');
         const ctaButtons = document.querySelectorAll('.cta-button');
 
@@ -39,7 +37,7 @@ const Home = () => {
 
     const handleScrollToSecond = () => {
         if (secondSectionRef.current) {
-            const yOffset = -80; // Adjust this value to fine-tune scroll position
+            const yOffset = -80;
             const y = secondSectionRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
             window.scrollTo({top: y, behavior: 'smooth'});
         }

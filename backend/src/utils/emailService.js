@@ -2,7 +2,7 @@ const nodemailer = require('nodemailer');
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
-  auth: {  // Cambiato da 'access' a 'auth'
+  auth: { 
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS
   }
@@ -13,7 +13,7 @@ exports.sendResetPasswordEmail = async (email, resetToken) => {
     to: email,
     from: process.env.EMAIL_USER,
     subject: 'Reset Password',
-    text: `Clicca sul seguente link per resettare la tua password: http://localhost:3000/reset/${resetToken}`
+    text: `Clicca sul seguente link per resettare la tua password: http://slashslot:3000/reset/${resetToken}`
   };
 
   try {
@@ -22,6 +22,6 @@ exports.sendResetPasswordEmail = async (email, resetToken) => {
     console.log('Email inviata con successo');
   } catch (error) {
     console.error('Errore nell\'invio dell\'email:', error);
-    throw error;  // Rilanciamo l'errore per gestirlo nel controller
+    throw error; 
   }
 };

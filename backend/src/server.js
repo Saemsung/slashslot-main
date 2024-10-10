@@ -14,7 +14,7 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: 'http://slashslot:3000',
   credentials: true
 }));
 
@@ -26,10 +26,8 @@ app.use('/api', checkTokenBlacklist);
 app.use('/api', accessRoutes);
 app.use('/api', accountRoutes);
 
-// Serve static files
 app.use(express.static(path.join(__dirname, '../public')));
 
-// Server status route
 app.get('/api/status', (req, res) => {
   res.json({
     server: 'online',
@@ -46,7 +44,6 @@ app.get('/api/status', (req, res) => {
   });
 });
 
-// Serve the server status HTML page
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/server-status.html'));
 });

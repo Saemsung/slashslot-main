@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/Account');
 const { sendResetPasswordEmail } = require('../utils/emailService');
-const crypto = require('crypto'); // Aggiungi questa riga
+const crypto = require('crypto');
 
 exports.register = async (req, res) => {
   try {
@@ -137,7 +137,6 @@ exports.logout = async (req, res) => {
   try {
     const token = req.headers.authorization?.split(' ')[1];
     if (token) {
-      // Aggiungi il token alla blacklist
       if (!global.tokenBlacklist) {
         global.tokenBlacklist = new Set();
       }
@@ -150,7 +149,6 @@ exports.logout = async (req, res) => {
   }
 };
 
-// Aggiungi questo middleware per verificare i token invalidati
 exports.checkTokenBlacklist = (req, res, next) => {
   const token = req.headers.authorization?.split(' ')[1];
   if (global.tokenBlacklist && global.tokenBlacklist.has(token)) {

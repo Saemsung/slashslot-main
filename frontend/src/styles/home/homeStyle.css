@@ -1,6 +1,4 @@
-/* homeStyle.css */
 @import 'homeStyle2.css';
-/* @import 'homeStyle3.css'; Uncomment when homeStyle3.css is created */
 
 .home-container {
   text-align: center;
@@ -17,42 +15,41 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* Centering the content vertically */
+  justify-content: center;
 }
 
 .first-section {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Pushing the title towards the top */
-  padding-top: 160px; /* Added padding to move the title higher */
+  justify-content: flex-start;
+  padding-top: 160px;
 }
 
 .main-title {
-  font-size: 72px; /* Dimensione del carattere del titolo */
+  font-size: 72px;
   margin: 20px 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   line-height: 1.2;
-  position: relative; /* Rende possibile l'utilizzo di left e right per la posizione */
+  position: relative;
 }
 
 .title-line {
-  display: flex; /* Assicurati che le parole siano sulla stessa riga */
+  display: flex;
 }
 
 .first-line {
-  justify-content: flex-start; /* Modifica questa proprietà per allineare a sinistra */
-  margin-right: 350px; /* Modifica questo valore per regolare la posizione */
+  justify-content: flex-start;
+  margin-right: 350px;
 }
 
 .second-line {
-  justify-content: flex-end; /* Modifica questa proprietà per allineare a destra */
-  margin-left: 350px; /* Modifica questo valore per regolare la posizione */
+  justify-content: flex-end;
+  margin-left: 350px;
 }
 
-/* Mantieni le animazioni esistenti per le title-word */
 .title-word {
   margin: 0 5px;
   display: inline-block;
@@ -61,21 +58,20 @@
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-
 .title-word.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
 .description {
-  font-size: 24px; /* Enlarged the description font */
+  font-size: 24px;
   line-height: 1.4;
-  margin: 10px 0; /* Adjusted margin */
+  margin: 10px 0;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.5s ease, transform 0.5s ease;
-  max-width: 700px; /* Added a max-width for better readability */
-  text-align: center; /* Centered the text */
+  max-width: 700px;
+  text-align: center;
 }
 
 .description.visible {
@@ -85,7 +81,7 @@
 
 .cta-button {
   padding: 15px 30px;
-  font-size: 20px; /* Increased font size */
+  font-size: 20px;
   background-color: #000;
   color: #fff;
   border: none;

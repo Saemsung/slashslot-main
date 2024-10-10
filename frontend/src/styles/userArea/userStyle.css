@@ -4,7 +4,7 @@
   
   .user-content {
     flex-grow: 1;
-    margin-left: 250px; /* Width of the LateralBar */
+    margin-left: 250px; 
     padding: 20px;
   }
   

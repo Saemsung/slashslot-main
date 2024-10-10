@@ -1,19 +1,10 @@
 Riepilogo comandi da terminale:
-Aggiungi tutti i file modificati alla staging area:
 
-bash
-Copia codice
 git add .
 Fai un commit delle modifiche:
 
-bash
-Copia codice
 git commit -m "Descrizione delle modifiche"
-Esegui il push delle modifiche su GitHub:
+Esegui il push delle modifiche su GitHub
 
-bash
-Copia codice
-git push origin nome_branch
-
-
-sad
+git push origin main
+Inserisce le modifiche nella main

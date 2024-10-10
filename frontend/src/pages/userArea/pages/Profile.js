@@ -2,7 +2,6 @@ import React from 'react';
 import Lateralbar from '../../../components/Lateralbar';
 
 const Profile = () => {
-  // Placeholder data for favorite casinos
   const favoriteCasinos = [
     { id: 1, name: 'Casino Royale', lastVisited: '2023-05-15' },
     { id: 2, name: 'Bellagio', lastVisited: '2023-06-02' },

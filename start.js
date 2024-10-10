@@ -39,23 +39,21 @@ const clearPort = (port) => {
 
         exec(command, (error, stdout) => {
             if (error && !stdout) {
-                resolve(); // Skip if no process is found
+                resolve();
                 return;
             }
 
-            // Extract PIDs for Windows and Unix-based systems
             const pids = stdout.split('\n').filter(line => line.trim() !== "").map(line => {
                 return process.platform === 'win32' ? line.trim().split(/\s+/).pop() : line.trim();
-            }).filter(pid => pid && !isNaN(pid)); // Ensure PID is a valid number
+            }).filter(pid => pid && !isNaN(pid));
 
             if (pids.length === 0) {
-                resolve(); // No valid PID found, skip further actions
+                resolve();
                 return;
             }
 
             const killCommand = process.platform === 'win32' ? 'taskkill /F /PID' : 'kill -9';
 
-            // Terminate all processes using the extracted PIDs
             pids.forEach(pid => {
                 exec(`${killCommand} ${pid}`, (err) => {
                     if (err) {
@@ -70,7 +68,6 @@ const clearPort = (port) => {
         });
     });
 };
-
 
 const clearPorts = async () => {
     await clearPort(5000);
@@ -120,10 +117,9 @@ const startFrontend = () => {
     frontendProcess.stderr.on('data', (data) => {
         const errorMessage = data.toString();
         
-        // Ignora il messaggio di creazione del proxy
         if (errorMessage.includes('[HPM] Proxy created')) {
             console.log(chalk.yellow('[Frontend Info] ') + errorMessage.trim());
-            return; // Non trattare come errore
+            return;
         }
         
         if (errorMessage.toLowerCase().includes('error')) {
@@ -134,7 +130,6 @@ const startFrontend = () => {
             console.error(chalk.red('[Frontend Error] ') + errorMessage.trim());
         }
     });
-    
 };
 
 const restartServices = async () => {

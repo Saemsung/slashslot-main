@@ -2,7 +2,6 @@ import React from 'react';
 import Lateralbar from '../../../components/Lateralbar';
 
 const Bonuses = () => {
-  // Placeholder data for acquired bonuses
   const acquiredBonuses = [
     { id: 1, name: 'Bonus di Benvenuto', amount: '€100', expiryDate: '2023-07-31' },
     { id: 2, name: 'Giri Gratuiti', amount: '50 Free Spins', expiryDate: '2023-07-15' },

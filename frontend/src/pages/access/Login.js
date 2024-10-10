@@ -14,7 +14,6 @@ const Login = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Carica le credenziali salvate, se presenti
     const savedEmail = localStorage.getItem('rememberedEmail');
     const savedPassword = localStorage.getItem('rememberedPassword');
     if (savedEmail && savedPassword) {

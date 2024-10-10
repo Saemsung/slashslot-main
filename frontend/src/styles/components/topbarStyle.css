@@ -1,4 +1,3 @@
-/* src/styles/topbarStyle.css */
 .topbar {
   display: flex;
   justify-content: space-between;
@@ -61,7 +60,6 @@
   margin-left: 20px;
 }
 
-/* Logo styles */
 #logo-container {
   font-size: 24px;
   font-weight: bold;
@@ -76,8 +74,8 @@
 }
 
 .logo-link {
-  color: inherit; /* Mantiene il colore del testo del genitore */
-  text-decoration: none; /* Rimuove la sottolineatura */
+  color: inherit; 
+  text-decoration: none; 
 }
 
 #slash-text, #lot-text {

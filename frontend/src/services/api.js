@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:5000/api'
+  baseURL: 'http://slashslot:5000/api'
 });
 
 api.interceptors.request.use(
@@ -23,7 +23,7 @@ api.interceptors.response.use(
       originalRequest._retry = true;
       try {
         const refreshToken = localStorage.getItem('refreshToken');
-        const response = await axios.post('http://localhost:5000/api/access/refresh-token', { refreshToken });
+        const response = await axios.post('http://slashslot:5000/api/access/refresh-token', { refreshToken });
         const { token } = response.data;
         localStorage.setItem('token', token);
         originalRequest.headers['Authorization'] = `Bearer ${token}`;

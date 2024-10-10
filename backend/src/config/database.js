@@ -2,11 +2,10 @@ const mongoose = require('mongoose');
 
 exports.connectDB = async () => {
   try {
-    // Usa la variabile d'ambiente per l'URI MongoDB
     const mongoURI = process.env.MONGODB_URI;
 
     await mongoose.connect(mongoURI, {
-      useNewUrlParser: true, // Questi parametri possono essere rimossi se superflui
+      useNewUrlParser: true,
       useUnifiedTopology: true,
     });
 

@@ -28,15 +28,15 @@ module.exports = {
       template: './public/index.html',
       favicon: './public/favicon.ico',
     }),
-    new CopyPlugin({  // Modifica questa linea
+    new CopyPlugin({  
       patterns: [{ from: 'public', to: 'public' }],
     }),
   ],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src'), // Aggiungi questa linea per l'alias
+      '@': path.resolve(__dirname, 'src'), 
     },
-    extensions: ['.js', '.json'], // Opzionale: permette di omettere le estensioni durante l'import
+    extensions: ['.js', '.json'], 
   },
   devServer: {
     static: {
@@ -49,7 +49,7 @@ module.exports = {
     proxy: [
       {
         context: ['/api'],
-        target: 'http://localhost:5000',
+        target: 'http://slashslot:5000',
         changeOrigin: true,
       },
     ],
