@@ -1,7 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-
+const CopyPlugin = require('copy-webpack-plugin');
 module.exports = {
   entry: './src/index.js',
   output: {
@@ -29,7 +28,7 @@ module.exports = {
       template: './public/index.html',
       favicon: './public/favicon.ico',
     }),
-    new CopyWebpackPlugin({
+    new CopyPlugin({  // Modifica questa linea
       patterns: [{ from: 'public', to: 'public' }],
     }),
   ],
