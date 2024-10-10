@@ -8,7 +8,7 @@
         "start:pro": "node start.js pro",
         "start:backend": "cd backend && npm start",
         "start:frontend": "cd frontend && npm start",
-        "build": "npm run build:backend && npm run build:frontend",
+        "build": "npm i && npm run build:backend && npm run build:frontend",
         "build:backend": "cd backend && npm run build",
         "build:frontend": "cd frontend && npm run build",
         "install:all": "npm install && npm run install:backend && npm run install:frontend",
@@ -24,7 +24,9 @@
         "chalk": "^5.3.0",
         "concurrently": "^8.2.0",
         "figlet": "^1.7.0",
-        "nodemon": "^3.1.7"
+        "nodemon": "^3.1.7",
+        "webpack": "^5.95.0",
+        "webpack-cli": "^5.1.4"
     },
     "dependencies": {
         "all": "^0.0.0",
